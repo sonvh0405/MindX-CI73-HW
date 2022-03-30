@@ -1,0 +1,24 @@
+.container {
+  font-family: sans-serif;
+  width: 400px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inputfield {
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  padding: 5px 0px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  content: 5px;
+}
+
+.taskitem {
+  margin: 5px;
+}
+
+.taskcontent {
+  margin-left: 5px;
+}
