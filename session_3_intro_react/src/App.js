@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function InputField() {
@@ -21,21 +20,31 @@ function TaskItem(props) {
 function TaskList() {
   return (
     <div>
-      <TaskItem taskcontent="Clean up bedroom"/>
-      <TaskItem taskcontent="Buy some milk"/>
-      <TaskItem taskcontent="Jogging"/>
-      <TaskItem taskcontent="Learn React"/>
-      <TaskItem taskcontent="Doing Exercises"/>
+      <TaskItem taskcontent="Clean up bedroom" />
+      <TaskItem taskcontent="Buy some milk" />
+      <TaskItem taskcontent="Jogging" />
+      <TaskItem taskcontent="Learn React" />
+      <TaskItem taskcontent="Doing Exercises" />
     </div>
   );
 }
 
+function TasksLeft() {
+  return (
+    <div className="footer">
+      <div>5 tasks left</div>
+      <div>MindX todolist</div>
+    </div>
+  )
+}
+
 function Container() {
-  return(
+  return (
     <div className="container">
-    <InputField />
-    <TaskList />
-  </div>
+      <InputField />
+      <TaskList />
+      <TasksLeft />
+    </div>
   )
 }
 
