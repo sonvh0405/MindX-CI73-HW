@@ -1,0 +1,17 @@
+.body {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(245 245 245);
+    text-align: center;
+    padding-top: 25px;
+}

@@ -1,0 +1,10 @@
+.header {
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(245 245 245);
+}
+
+.login-btn {
+    position: absolute;
+    right: 50px;
+}
