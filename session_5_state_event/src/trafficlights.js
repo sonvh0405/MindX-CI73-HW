@@ -17,6 +17,22 @@ const TrafficLights1 = () => {
         }
     ]);
 
+    const handleClickBack = () => {
+        const activeLightIndex = lights.findIndex((light) => {
+            return light.isActive;
+        });
+        let preAvtiveLightIndex;
+        if (activeLightIndex === 0) {
+            preAvtiveLightIndex = lights.length - 1;
+        } else {
+            preAvtiveLightIndex = activeLightIndex - 1;
+        }
+        const newLights = [...lights];
+        newLights[activeLightIndex].isActive = false;
+        newLights[preAvtiveLightIndex].isActive = true;
+        setLights(newLights);
+    }
+
     const handleClickNext = () => {
         const activeLightIndex = lights.findIndex((light) => {
             return light.isActive;
@@ -35,6 +51,7 @@ const TrafficLights1 = () => {
     return (
         <div>
             <p>Cách 1</p>
+            <button onClick={handleClickBack}>Previous</button>
             <button onClick={handleClickNext}>Next</button>
             <div className='lights-container'>
                 {lights.map(light => (<div className='light' style={{ backgroundColor: light.isActive ? light.color : 'white' }}></div>))}
@@ -45,9 +62,18 @@ const TrafficLights1 = () => {
 
 export { TrafficLights1 };
 
+
+
 const TrafficLights2 = () => {
     const lightsOrder = ['red', 'yellow', 'green'];
     const [activeLightIndex, setActiveLightIndex] = useState(0);
+
+    const handleClickBack = () => {
+        setActiveLightIndex(
+            activeLightIndex === 0 ? lightsOrder.length - 1 : activeLightIndex - 1
+        )
+    }
+
     const handleClickNext = () => {
         setActiveLightIndex(
             activeLightIndex === lightsOrder.length - 1 ? 0 : activeLightIndex + 1
@@ -55,6 +81,7 @@ const TrafficLights2 = () => {
     }
     return <div>
         <p>Cách 2</p>
+        <button onClick={handleClickBack}>Previous</button>
         <button onClick={handleClickNext}>Next</button>
         <div className='lights-container'>
             {lightsOrder.map((light, index) => {
