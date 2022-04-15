@@ -48,11 +48,33 @@ const TrafficLights1 = () => {
         newLights[nextAvtiveLightIndex].isActive = true;
         setLights(newLights);
     }
+
+    const [direction, setDirection] = useState(true);
+    const handleClick = () => {
+        const activeLightIndex = lights.findIndex((light) => {
+            return light.isActive;
+        });
+        let nextAvtiveLightIndex;
+        if (direction) {
+            nextAvtiveLightIndex = activeLightIndex + 1;
+        } else {
+            nextAvtiveLightIndex = activeLightIndex - 1;
+        }
+        const newLights = [...lights];
+        newLights[activeLightIndex].isActive = false;
+        newLights[nextAvtiveLightIndex].isActive = true;
+        setLights(newLights);
+
+        nextAvtiveLightIndex===0&&setDirection(true);
+        nextAvtiveLightIndex===lights.length - 1&&setDirection(false);
+    }
+
     return (
         <div>
             <p>Cách 1</p>
             <button onClick={handleClickBack}>Previous</button>
             <button onClick={handleClickNext}>Next</button>
+            <button onClick={handleClick}>Click</button>
             <div className='lights-container'>
                 {lights.map(light => (<div className='light' style={{ backgroundColor: light.isActive ? light.color : 'white' }}></div>))}
             </div>
